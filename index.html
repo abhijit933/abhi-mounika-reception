@@ -66,7 +66,13 @@ button{border:none;background:none;}
 .detail-row{display:grid;gap:20px;}
 @media(min-width:760px){.detail-row{grid-template-columns:repeat(3,1fr);}}
 .venue-card{display:grid;gap:24px;padding:44px;}
+.venue-top{display:grid;gap:24px;}
+@media(min-width:900px){.venue-top{grid-template-columns:1.2fr .8fr;align-items:center;}}
 .venue-meta{display:grid;gap:20px;}
+.venue-image{border-radius:24px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,.12);}
+.venue-image img{width:100%;height:auto;display:block;object-fit:cover;}
+.venue-map{border-radius:24px;overflow:hidden;border:1px solid rgba(123,0,28,.12);box-shadow:0 18px 36px rgba(0,0,0,.1);}
+.venue-map iframe{width:100%;height:320px;border:0;display:block;}
 .venue-card h3,.blessings-card h3{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--maroon);margin:0;}
 .venue-card p,.blessings-card p{color:var(--text-soft);line-height:1.8;font-size:1rem;}
 .venue-actions{display:flex;flex-wrap:wrap;gap:14px;}
@@ -125,7 +131,7 @@ footer p{font-size:1rem;max-width:720px;margin:0 auto;color:#f1dcc7;}
 <div class="hero-actions">
 <a class="btn btn-primary" href="#venue">View Venue</a>
 <button class="btn btn-secondary" onclick="addToCalendar()">Add to Calendar</button>
-<a class="btn btn-ghost" href="mailto:abhijit@example.com?subject=RSVP%20for%20Your%20Reception">RSVP / Contact</a>
+<a class="btn btn-ghost" href="https://wa.me/918763385767?text=Hello%20Abhi%20%26%20Mounika%2C%20I%20would%20like%20to%20confirm%20my%20RSVP%20for%20the%20reception.">RSVP / Contact</a>
 </div>
 </div>
 </div>
@@ -150,14 +156,22 @@ footer p{font-size:1rem;max-width:720px;margin:0 auto;color:#f1dcc7;}
 <p>Celebrate with us at The Presidency in Bhubaneswar, where warm hospitality and elegant charm come together for an unforgettable evening.</p>
 </div>
 <div class="card venue-card">
+<div class="venue-top">
 <div class="venue-meta">
 <div class="overline">Reception details</div>
 <h3>The Presidency</h3>
 <p>1471/A, near ISKON Temple<br>ESIC Quarters, Nayapalli<br>Bhubaneswar, Odisha 751015</p>
 </div>
+<a class="venue-image" target="_blank" href="https://share.google/e82XmpFIj4eZGn56i">
+<img src="assets/presidency.webp" alt="The Presidency venue">
+</a>
+</div>
+<div class="venue-map">
+<iframe src="https://maps.google.com/maps?q=The%20Presidency%20Bhubaneswar&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 <div class="venue-actions">
 <a class="btn btn-primary" target="_blank" href="https://maps.app.goo.gl/46Lkpp5stmx4ezoF6">Open in Maps</a>
-<a class="btn btn-secondary" target="_blank" href="https://drive.google.com/drive/folders/1Qu31r6HF9_KBCnZIhJxv2ljWc8S7AJi-">View Gallery</a>
+<a class="btn btn-secondary" target="_blank" href="https://drive.google.com/drive/folders/1Iw-AhHED1GtQ0-0LSwLTfNp9XLUf_SyM">View Gallery</a>
 </div>
 </div>
 </div>
@@ -171,12 +185,10 @@ footer p{font-size:1rem;max-width:720px;margin:0 auto;color:#f1dcc7;}
 <div class="family-block">
 <h4>Abhijit's Family</h4>
 <p><strong>Father:</strong> Pradyumna Kumar Mishra<br><strong>Mother:</strong> Monalisa Mishra</p>
-<p>With heartfelt blessings and warm wishes, they look forward to celebrating this joyful evening with family and friends.</p>
 </div>
 <div class="family-block">
 <h4>Mounika's Family</h4>
 <p><strong>Father:</strong> N Chandra Sekhar<br><strong>Mother:</strong> N Lakshmi</p>
-<p>Their blessing fills this celebration with love, tradition, and the joy of bringing two families together.</p>
 </div>
 </div>
 </div>
