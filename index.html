@@ -6,78 +6,217 @@
 <title>Abhijit & Mounika | Reception Celebration</title>
 <meta property="og:title" content="Abhijit & Mounika | Reception Celebration">
 <meta property="og:description" content="Reception Celebration - 12 July 2026, 7:30 PM onwards">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#FAF7F2;--gold:#D4AF37;--wine:#7B001C;}
+:root {
+  --cream: #f6efe6;
+  --ivory: #fff8ef;
+  --gold: #d4af37;
+  --maroon: #7b001c;
+  --text: #3d2f28;
+  --text-soft: #6a584d;
+  --border: rgba(123,0,28,0.14);
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Georgia,serif;background:var(--cream);color:#333;border:10px solid var(--gold)}
-.hero{min-height:100vh;background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('assets/hero.jpg') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
-.hero h1{font-size:5rem}
-.hero p{font-size:1.3rem;margin:.5rem 0}
-.section{max-width:1000px;margin:auto;padding:70px 20px}
-.card{background:#fff;padding:40px;border-radius:20px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
-h2{color:var(--wine);margin-bottom:20px;text-align:center}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.box{background:#fff;padding:25px;border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.08);text-align:center}
-.btn{display:inline-block;margin-top:20px;background:var(--wine);color:#fff;text-decoration:none;padding:12px 20px;border-radius:30px}
-.footer{background:var(--wine);color:#fff;text-align:center;padding:50px 20px}
+body{font-family:'Jost',sans-serif;background:linear-gradient(180deg,#f9f3eb 0%,#f2e8dd 100%);color:var(--text);min-height:100vh;}
+a,button{font:inherit;cursor:pointer;}
+button{border:none;background:none;}
+.hero{min-height:100vh;padding:60px 24px;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background:linear-gradient(180deg,rgba(17,7,3,0.45),rgba(17,7,3,0.72)),url('assets/hero.jpg') center/cover no-repeat;color:#f7ebdb;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top,rgba(255,255,255,0.14),transparent 40%);pointer-events:none;}
+.hero-content{position:relative;z-index:1;opacity:0;animation:fadeInUp 1s ease forwards;}
+.hero .eyebrow{font-size:.85rem;letter-spacing:.28em;text-transform:uppercase;color:#f5d7b2;margin-bottom:18px;}
+.hero h1{font-family:'Great Vibes',cursive;font-size:5rem;line-height:1;letter-spacing:.02em;margin-bottom:18px;text-shadow:0 22px 46px rgba(0,0,0,.35);}
+.hero p.subtitle{font-family:'Cormorant Garamond',serif;font-size:1.4rem;max-width:680px;margin:0 auto 28px;color:rgba(247,235,219,.95);}
+.hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;}
+.countdown{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;margin:0 auto 28px;max-width:520px;}
+.countdown-item{min-width:88px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(10px);border-radius:18px;padding:18px 16px;}
+.countdown-item strong{display:block;font-family:'Cormorant Garamond',serif;font-size:2rem;color:#fff;line-height:1;}
+.countdown-item small{display:block;margin-top:6px;font-size:.8rem;color:rgba(247,229,213,.82);letter-spacing:.18em;text-transform:uppercase;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 28px;border-radius:999px;transition:transform .25s ease,box-shadow .25s ease,color .25s ease,background .25s ease;text-decoration:none;text-transform:uppercase;letter-spacing:.08em;font-weight:600;}
+.btn-primary{background:var(--maroon);color:#fff;box-shadow:0 24px 42px rgba(123,0,28,.22);}
+.btn-secondary{background:rgba(255,255,255,.94);color:var(--text);border:1px solid rgba(255,255,255,.86);}
+.btn-ghost{background:transparent;color:#f7e5d5;border:1px solid rgba(247,229,213,.5);}
+.btn:hover{transform:translateY(-2px);}
+.section{max-width:1080px;margin:0 auto;padding:72px 24px;}
+.card{background:#fff;border-radius:28px;box-shadow:0 24px 60px rgba(24,16,10,.08);border:1px solid var(--border);overflow:hidden;}
+.section-header{text-align:center;margin-bottom:40px;}
+.section-header h2{font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--maroon);margin-bottom:16px;}
+.section-header p{color:var(--text-soft);font-size:1.05rem;max-width:720px;margin:0 auto;}
+.grid{display:grid;gap:20px;}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr);}}
+.detail-card{background:linear-gradient(180deg,#fbf3ea 0%,#f6ebe2 100%);padding:34px 28px;border-radius:24px;border:1px solid rgba(123,0,28,.08);text-align:center;}
+.detail-card strong{display:block;font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#4e2f29;margin-bottom:12px;}
+.detail-card span{display:block;font-size:1.05rem;color:#6d544d;}
+.detail-row{display:grid;gap:20px;}
+@media(min-width:760px){.detail-row{grid-template-columns:repeat(3,1fr);}}
+.venue-card{display:grid;gap:24px;padding:44px;}
+.venue-meta{display:grid;gap:20px;}
+.venue-card h3,.blessings-card h3{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--maroon);margin:0;}
+.venue-card p,.blessings-card p{color:var(--text-soft);line-height:1.8;font-size:1rem;}
+.venue-actions{display:flex;flex-wrap:wrap;gap:14px;}
+.overline{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:#b48c65;margin-bottom:12px;}
+.family-grid{display:grid;gap:24px;}
+@media(min-width:760px){.family-grid{grid-template-columns:repeat(2,1fr);}}
+.family-block{padding:32px 28px;border-radius:24px;background:linear-gradient(180deg,#fff8f2 0%,#f7efe5 100%);border:1px solid rgba(180,140,101,.16);box-shadow:0 16px 30px rgba(24,16,10,.08);}
+.family-block h4{font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--maroon);margin-bottom:14px;}
+.family-block p{color:var(--text-soft);line-height:1.9;font-size:1rem;}
+.blessings-card{padding:50px 44px;}
+footer{background:var(--maroon);color:#f7e5d5;text-align:center;padding:54px 24px;}
+footer h2{font-family:'Great Vibes',cursive;font-size:3rem;margin-bottom:14px;}
+footer p{font-size:1rem;max-width:720px;margin:0 auto;color:#f1dcc7;}
+@media(max-width:760px){
+  .hero{padding:40px 18px;}
+  .hero h1{font-size:3.4rem;}
+  .hero p.subtitle{font-size:1.05rem;max-width:100%;}
+  .section{padding:48px 18px;}
+  .section-header h2{font-size:2.4rem;}
+  .detail-card{padding:24px 18px;}
+  .venue-card{padding:28px 22px;}
+  .blessings-card{padding:36px 24px;}
+  .footer{padding:40px 20px;}
+  .hero-actions{gap:10px;}
+  .btn{padding:12px 18px;font-size:.95rem;}
+  .countdown{gap:12px;}
+  .countdown-item{min-width:72px;padding:14px 12px;}
+  .countdown-item strong{font-size:1.6rem;}
+}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(34px);}to{opacity:1;transform:translateY(0);}}
 </style>
 </head>
 <body>
 <div class="hero">
-<div>
-<p>Reception Celebration</p>
+<div class="hero-content">
+<p class="eyebrow">Reception Celebration</p>
 <h1>Abhijit & Mounika</h1>
-<p>Sunday, 12 July 2026</p>
-<p>7:30 PM Onwards</p>
-<a class="btn" href="#invite">View Invitation</a>
+<p class="subtitle">Join us for an evening of music, laughter, and beautiful memories as we celebrate the beginning of our next chapter together.</p>
+<div class="countdown" aria-label="Countdown to event">
+<div class="countdown-item"><strong id="countdown-days">00</strong><small>Days</small></div>
+<div class="countdown-item"><strong id="countdown-hours">00</strong><small>Hours</small></div>
+<div class="countdown-item"><strong id="countdown-minutes">00</strong><small>Minutes</small></div>
+<div class="countdown-item"><strong id="countdown-seconds">00</strong><small>Seconds</small></div>
+</div>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#venue">View Venue</a>
+<button class="btn btn-secondary" onclick="addToCalendar()">Add to Calendar</button>
+<a class="btn btn-ghost" href="mailto:abhijit@example.com?subject=RSVP%20for%20Your%20Reception">RSVP / Contact</a>
+</div>
 </div>
 </div>
 
 <div id="invite" class="section">
-<div class="card">
+<div class="card" style="padding:50px;">
+<div class="section-header">
 <h2>You Are Invited</h2>
-<p style="text-align:center;line-height:1.8">
-Together with their families, <b>Abhijit & Mounika</b> request the pleasure of your company at their Reception Celebration as they begin a new chapter filled with love, laughter and togetherness.
-</p>
+<p>Together with their families, <strong>Abhijit & Mounika</strong> request the pleasure of your company at their Reception Celebration on Sunday, 12 July 2026.</p>
+</div>
+<div class="detail-row">
+<div class="detail-card"><strong>Date</strong><span>12 July 2026</span></div>
+<div class="detail-card"><strong>Time</strong><span>7:30 PM onwards</span></div>
+<div class="detail-card"><strong>Venue</strong><span>The Presidency, Bhubaneswar</span></div>
+</div>
+</div>
+</div>
+
+<div class="section" id="venue">
+<div class="section-header">
+<h2>Venue & Location</h2>
+<p>Celebrate with us at The Presidency in Bhubaneswar, where warm hospitality and elegant charm come together for an unforgettable evening.</p>
+</div>
+<div class="card venue-card">
+<div class="venue-meta">
+<div class="overline">Reception details</div>
+<h3>The Presidency</h3>
+<p>1471/A, near ISKON Temple<br>ESIC Quarters, Nayapalli<br>Bhubaneswar, Odisha 751015</p>
+</div>
+<div class="venue-actions">
+<a class="btn btn-primary" target="_blank" href="https://maps.app.goo.gl/46Lkpp5stmx4ezoF6">Open in Maps</a>
+<a class="btn btn-secondary" target="_blank" href="https://drive.google.com/drive/folders/1Qu31r6HF9_KBCnZIhJxv2ljWc8S7AJi-">View Gallery</a>
+</div>
 </div>
 </div>
 
 <div class="section">
-<h2>Reception Details</h2>
-<div class="grid">
-<div class="box"><b>Date</b><br>12 July 2026</div>
-<div class="box"><b>Time</b><br>7:30 PM onwards</div>
-<div class="box"><b>Venue</b><br>The Presidency<br>Bhubaneswar</div>
-</div>
-</div>
-
-<div class="section">
-<div class="card">
+<div class="card blessings-card">
+<div class="section-header">
 <h2>With The Blessings Of</h2>
-<p style="text-align:center;line-height:2">
-Pradyumna Kumar Mishra & Monalisa Mishra<br><br>
-and<br><br>
-N Chandra Sekhar & N Lakshmi
-</p>
+</div>
+<div class="family-grid">
+<div class="family-block">
+<h4>Abhijit's Family</h4>
+<p><strong>Father:</strong> Pradyumna Kumar Mishra<br><strong>Mother:</strong> Monalisa Mishra</p>
+<p>With heartfelt blessings and warm wishes, they look forward to celebrating this joyful evening with family and friends.</p>
+</div>
+<div class="family-block">
+<h4>Mounika's Family</h4>
+<p><strong>Father:</strong> N Chandra Sekhar<br><strong>Mother:</strong> N Lakshmi</p>
+<p>Their blessing fills this celebration with love, tradition, and the joy of bringing two families together.</p>
+</div>
+</div>
 </div>
 </div>
 
-<div class="section">
-<div class="card" style="text-align:center">
-<h2>Venue</h2>
-<p>
-The Presidency<br>
-1471/A, near ISKON Temple<br>
-ESIC Quarters, Nayapalli<br>
-Bhubaneswar, Odisha 751015
-</p>
-<a class="btn" target="_blank" href="https://maps.app.goo.gl/46Lkpp5stmx4ezoF6">Open Location</a>
-</div>
-</div>
+<footer>
+<h2>Abhi ❤️ Mouni</h2>
+<p>Your presence is our greatest gift — we can’t wait to celebrate with you.</p>
+</footer>
 
-<div class="footer">
-<h2 style="color:white">Abhi ❤️ Mouni</h2>
-<p>Your Presence Is The Greatest Gift</p>
-</div>
+<script>
+function addToCalendar() {
+  const title = 'Abhijit & Mounika Reception Celebration';
+  const description = 'Join us for the Reception Celebration of Abhijit and Mounika in Bhubaneswar.';
+  const location = 'The Presidency, 1471/A, near ISKON Temple, ESIC Quarters, Nayapalli, Bhubaneswar, Odisha 751015';
+  const start = '20260712T133000';
+  const end = '20260712T170000';
+  const dtstamp = new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  const contents = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//abhi-mounika-reception//EN',
+    'CALSCALE:GREGORIAN',
+    'BEGIN:VEVENT',
+    'UID:' + Date.now() + '@abhi-mounika-reception',
+    'DTSTAMP:' + dtstamp,
+    'DTSTART:' + start,
+    'DTEND:' + end,
+    'SUMMARY:' + title,
+    'DESCRIPTION:' + description,
+    'LOCATION:' + location,
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n');
+  const blob = new Blob([contents], { type: 'text/calendar;charset=utf-8' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'abhi-mounika-reception.ics';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+function updateCountdown() {
+  const end = new Date('July 12, 2026 19:30:00 GMT+0530');
+  const now = new Date();
+  const diff = end - now;
+  if (diff <= 0) {
+    document.getElementById('countdown-days').textContent = '00';
+    document.getElementById('countdown-hours').textContent = '00';
+    document.getElementById('countdown-minutes').textContent = '00';
+    document.getElementById('countdown-seconds').textContent = '00';
+    return;
+  }
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+  document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
+  document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+  document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+  document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
 </body>
 </html>
