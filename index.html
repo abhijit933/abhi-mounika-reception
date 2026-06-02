@@ -266,7 +266,15 @@ function createGlitterEffect(x, y) {
 
 document.addEventListener('pointerdown', (event) => {
   if (event.button !== 0) return;
+  if (event.target.closest('.audio-toggle, .envelope-screen')) return;
   createGlitterEffect(event.clientX, event.clientY);
+});
+
+document.addEventListener('touchstart', (event) => {
+  if (event.target.closest('.audio-toggle, .envelope-screen')) return;
+  if (event.touches.length === 0) return;
+  const touch = event.touches[0];
+  createGlitterEffect(touch.clientX, touch.clientY);
 });
 
 function updateCountdown() {
