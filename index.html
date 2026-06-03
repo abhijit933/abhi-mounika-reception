@@ -269,10 +269,10 @@ function addToCalendar() {
   const contents = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
-    'PRODID:-//abhi-mounika-reception//EN',
+    'PRODID:-//abhijit-mounika-reception//EN',
     'CALSCALE:GREGORIAN',
     'BEGIN:VEVENT',
-    'UID:' + Date.now() + '@abhi-mounika-reception',
+    'UID:' + Date.now() + '@abhijit-mounika-reception',
     'DTSTAMP:' + dtstamp,
     'DTSTART:' + start,
     'DTEND:' + end,
@@ -285,7 +285,7 @@ function addToCalendar() {
   const blob = new Blob([contents], { type: 'text/calendar;charset=utf-8' });
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
-  link.download = 'abhi-mounika-reception.ics';
+  link.download = 'abhijit-mounika-reception.ics';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
