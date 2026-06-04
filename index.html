@@ -106,12 +106,30 @@ button{border:none;background:none;}
 .venue-card p,.blessings-card p{color:var(--text-soft);line-height:1.8;font-size:1rem;}
 .venue-actions{display:flex;flex-wrap:wrap;gap:14px;}
 .overline{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:#b48c65;margin-bottom:12px;}
-.family-grid{display:grid;gap:24px;}
+.family-grid{display:grid;gap:18px;grid-template-columns:repeat(2,1fr);align-items:start}
+family-grid{display:grid;gap:18px;grid-template-columns:repeat(2,1fr);align-items:stretch}
 @media(min-width:760px){.family-grid{grid-template-columns:repeat(2,1fr);}}
-.family-block{padding:32px 28px;border-radius:24px;background:linear-gradient(180deg,#fff8f2 0%,#f7efe5 100%);border:1px solid rgba(180,140,101,.16);box-shadow:0 16px 30px rgba(24,16,10,.08);}
-.family-block h4{font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--maroon);margin-bottom:16px;letter-spacing:.02em;}
-.family-block p{color:var(--text-soft);line-height:1.9;font-size:1rem;}
-.family-block p strong{display:block;color:#5d2f25;margin-bottom:8px;}
+
+/* Highlight primary family names and improve mobile layout */
+.family-block h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--text-soft);margin-bottom:8px;font-weight:600}
+.family-block p strong:first-child{display:block;font-family:'Playfair Display',serif;font-size:clamp(1rem,4.2vw,1.25rem);color:var(--maroon);margin-bottom:8px;letter-spacing:0.02em;line-height:1.05;min-height:3.6rem}
+.family-block{padding:26px 18px;border-radius:20px;background:linear-gradient(180deg,#fffaf5 0%,#f7efe5 100%);border:1px solid rgba(180,140,101,.12);box-shadow:0 10px 22px rgba(24,16,10,.06)}
+
+@media(max-width:420px){
+  .family-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .family-block{padding:20px}
+}
+@media(max-width:420px){
+  .family-block p strong:first-child{min-height:3.2rem}
+}
+@media(max-width:340px){
+  .family-grid{grid-template-columns:1fr}
+}
+/* Consolidated family-block styles (avoid duplicate overrides) */
+.family-block{display:flex;flex-direction:column;justify-content:flex-start;padding:26px 18px;border-radius:20px;background:linear-gradient(180deg,#fffaf5 0%,#f7efe5 100%);border:1px solid rgba(180,140,101,.12);box-shadow:0 10px 22px rgba(24,16,10,.06);min-height:140px}
+.family-block h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--text-soft);margin-bottom:8px;font-weight:600}
+.family-block p{color:var(--text-soft);line-height:1.9;font-size:1rem;margin:0}
+.family-block p strong{display:block;color:#5d2f25;margin-bottom:8px}
 .blessings-card{padding:56px 44px;}
 
 footer{background:var(--maroon);color:#f7e5d5;text-align:center;padding:54px 24px;}
@@ -132,6 +150,31 @@ footer p{font-size:1rem;max-width:720px;margin:0 auto;color:#f1dcc7;}
   .countdown{gap:12px;}
   .countdown-item{min-width:72px;padding:14px 12px;}
   .countdown-item strong{font-size:1.6rem;}
+}
+
+/* Responsive typography & mobile layout improvements */
+:root{--base-font-size:16px}
+html{font-size:var(--base-font-size)}
+.hero h1{font-size:clamp(2.4rem,6.5vw,4.8rem);line-height:1.02}
+.section-header h2{font-size:clamp(1.6rem,5.5vw,3rem)}
+.hero p.subtitle{font-size:clamp(1rem,2.8vw,1.35rem);line-height:1.6}
+.countdown-item strong{font-size:clamp(1.2rem,3.2vw,2rem)}
+.btn{padding:clamp(10px,2.2vw,14px) clamp(16px,3.8vw,28px);min-height:48px;border-radius:999px}
+.btn-primary,.btn-secondary,.btn-ghost{font-size:0.98rem}
+.photo-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.photo-item{aspect-ratio:4/5}
+.lightbox-content{max-width:98vw;max-height:86vh}
+.envelope-card{width:min(520px,96vw);padding:28px}
+.section{padding:48px 18px}
+
+@media(max-width:420px){
+  .hero h1{font-size:clamp(2rem,9vw,3.4rem)}
+  .hero{padding:32px 14px}
+  .hero .eyebrow{font-size:.8rem}
+  .hero-actions{gap:8px}
+  .countdown-item{min-width:64px;padding:10px 8px}
+  .audio-toggle{width:48px;height:48px;right:14px;bottom:14px}
+  .photo-item::after{font-size:.88rem;padding:8px 10px}
 }
 @keyframes fadeInUp{from{opacity:0;transform:translateY(34px);}to{opacity:1;transform:translateY(0);}}
 </style>
@@ -248,6 +291,7 @@ footer p{font-size:1rem;max-width:720px;margin:0 auto;color:#f1dcc7;}
 <footer>
 <h2>Abhi ❤️ Mouni</h2>
 <p>Your presence is our greatest gift — we can’t wait to celebrate with you.</p>
+<p>❤️ With love from Family & Friends ❤️</p>
 </footer>
 
 <div class="lightbox-overlay" id="lightbox-overlay" onclick="closeLightbox()" aria-hidden="true">
