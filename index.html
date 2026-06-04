@@ -428,10 +428,13 @@ function updateCountdown() {
 function revealCountdownDate() {
   const dateLabel = document.getElementById('countdown-date');
   if (!dateLabel) return;
-  if (!dateLabel.classList.contains('visible')) {
-    dateLabel.classList.add('visible');
+  const isVisible = dateLabel.classList.toggle('visible');
+  if (isVisible) {
     dateLabel.textContent = 'Reception Date: July 12, 2026';
     dateLabel.setAttribute('aria-hidden', 'false');
+  } else {
+    dateLabel.textContent = 'Click the countdown to reveal the date';
+    dateLabel.setAttribute('aria-hidden', 'true');
   }
 }
 
