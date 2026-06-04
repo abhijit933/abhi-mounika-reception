@@ -106,30 +106,28 @@ button{border:none;background:none;}
 .venue-card p,.blessings-card p{color:var(--text-soft);line-height:1.8;font-size:1rem;}
 .venue-actions{display:flex;flex-wrap:wrap;gap:14px;}
 .overline{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:#b48c65;margin-bottom:12px;}
-.family-grid{display:grid;gap:18px;grid-template-columns:repeat(2,1fr);align-items:start}
-family-grid{display:grid;gap:18px;grid-template-columns:repeat(2,1fr);align-items:stretch}
+.family-grid{display:grid;gap:18px;grid-template-columns:repeat(2,1fr);align-items:stretch}
 @media(min-width:760px){.family-grid{grid-template-columns:repeat(2,1fr);}}
-
-/* Highlight primary family names and improve mobile layout */
-.family-block h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--text-soft);margin-bottom:8px;font-weight:600}
-.family-block p strong:first-child{display:block;font-family:'Playfair Display',serif;font-size:clamp(1rem,4.2vw,1.25rem);color:var(--maroon);margin-bottom:8px;letter-spacing:0.02em;line-height:1.05;min-height:3.6rem}
-.family-block{padding:26px 18px;border-radius:20px;background:linear-gradient(180deg,#fffaf5 0%,#f7efe5 100%);border:1px solid rgba(180,140,101,.12);box-shadow:0 10px 22px rgba(24,16,10,.06)}
-
 @media(max-width:420px){
   .family-grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .family-block{padding:20px}
 }
-@media(max-width:420px){
-  .family-block p strong:first-child{min-height:3.2rem}
-}
 @media(max-width:340px){
   .family-grid{grid-template-columns:1fr}
 }
-/* Consolidated family-block styles (avoid duplicate overrides) */
-.family-block{display:flex;flex-direction:column;justify-content:flex-start;padding:26px 18px;border-radius:20px;background:linear-gradient(180deg,#fffaf5 0%,#f7efe5 100%);border:1px solid rgba(180,140,101,.12);box-shadow:0 10px 22px rgba(24,16,10,.06);min-height:140px}
-.family-block h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--text-soft);margin-bottom:8px;font-weight:600}
-.family-block p{color:var(--text-soft);line-height:1.9;font-size:1rem;margin:0}
-.family-block p strong{display:block;color:#5d2f25;margin-bottom:8px}
+
+/* Highlight primary family names and align family rows */
+.family-block{display:grid;gap:4px;padding:18px 12px;border-radius:20px;background:linear-gradient(180deg,#fffaf5 0%,#f7efe5 100%);border:1px solid rgba(180,140,101,.12);box-shadow:0 10px 22px rgba(24,16,10,.06);min-width:0}
+.family-block h4{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-soft);margin-bottom:0;font-weight:600}
+.family-name{font-family:'Playfair Display',serif;font-size:clamp(0.85rem,3vw,0.95rem);color:var(--maroon);font-weight:700;line-height:1.1;margin-bottom:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.family-row{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:6px;align-items:start;min-width:0}
+.family-row .label{font-weight:700;color:var(--maroon);margin:0;font-size:0.92rem;line-height:1.2;white-space:nowrap}
+.family-row .value{color:var(--text-soft);font-size:0.9rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+@media(max-width:420px){
+  .family-name{font-size:clamp(0.82rem,4.6vw,0.95rem)}
+  .family-row{grid-template-columns:max-content minmax(0,1fr)}
+}
 .blessings-card{padding:56px 44px;}
 
 footer{background:var(--maroon);color:#f7e5d5;text-align:center;padding:54px 24px;}
@@ -232,14 +230,20 @@ html{font-size:var(--base-font-size)}
 <p>Two families, one beautiful bond</p>
 </div>
 <div class="family-grid">
-<div class="family-block">
-<h4>Groom's Family</h4>
-<p><strong>Abhijit Mishra</strong><br><strong>Mother:</strong> Monalisa Mishra<br><strong>Father:</strong> Pradyumna Kumar Mishra<br><strong>Sister:</strong> Sonismit Mishra</p>
-</div>
-<div class="family-block">
-<h4>Bride's Family</h4>
-<p><strong>N Mounika</strong><br><strong>Mother:</strong> N Lakshmi<br><strong>Father:</strong> N Chandra Sekhar<br><strong>Brother:</strong> N Jagadeesh</p>
-</div>
+  <div class="family-block">
+    <h4>Groom's Family</h4>
+    <div class="family-name">Abhijit Mishra</div>
+    <div class="family-row"><span class="label">Mother:</span><span class="value">Monalisa Mishra</span></div>
+    <div class="family-row"><span class="label">Father:</span><span class="value">Pradyumna Kumar Mishra</span></div>
+    <div class="family-row"><span class="label">Sister:</span><span class="value">Sonismit Mishra</span></div>
+  </div>
+  <div class="family-block">
+    <h4>Bride's Family</h4>
+    <div class="family-name">N Mounika</div>
+    <div class="family-row"><span class="label">Mother:</span><span class="value">N Lakshmi</span></div>
+    <div class="family-row"><span class="label">Father:</span><span class="value">N Chandra Sekhar</span></div>
+    <div class="family-row"><span class="label">Brother:</span><span class="value">N Jagadeesh</span></div>
+  </div>
 </div>
 </div>
 </div>
@@ -468,6 +472,32 @@ function closeLightbox() {
   img.src = '';
   img.alt = '';
 }
+
+function equalizeFamilyRows() {
+  const cards = Array.from(document.querySelectorAll('.family-block'));
+  if (cards.length < 2) return;
+  const nameEls = cards.map(card => card.querySelector('.family-name'));
+  const rowSets = [0, 1, 2].map(i => cards.map(card => card.querySelectorAll('.family-row')[i]).filter(Boolean));
+
+  const resetHeights = () => {
+    nameEls.forEach(el => el.style.minHeight = '');
+    rowSets.flat().forEach(el => el.style.minHeight = '');
+  };
+
+  resetHeights();
+
+  const maxNameHeight = Math.max(...nameEls.map(el => el.offsetHeight));
+  nameEls.forEach(el => el.style.minHeight = `${maxNameHeight}px`);
+
+  rowSets.forEach(rows => {
+    if (!rows.length) return;
+    const maxH = Math.max(...rows.map(row => row.offsetHeight));
+    rows.forEach(row => row.style.minHeight = `${maxH}px`);
+  });
+}
+
+window.addEventListener('load', equalizeFamilyRows);
+window.addEventListener('resize', equalizeFamilyRows);
 
 initRevealOnScroll();
 </script>
