@@ -108,8 +108,10 @@ button{border:none;background:none;}
 .overline{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:#b48c65;margin-bottom:12px;}
 .family-grid{display:grid;gap:18px;grid-template-columns:repeat(2,1fr);align-items:stretch}
 @media(min-width:760px){.family-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:760px){
+  .family-grid{grid-template-columns:1fr;gap:12px}
+}
 @media(max-width:420px){
-  .family-grid{grid-template-columns:repeat(2,1fr);gap:12px}
   .family-block{padding:20px}
 }
 @media(max-width:340px){
@@ -117,16 +119,16 @@ button{border:none;background:none;}
 }
 
 /* Highlight primary family names and align family rows */
-.family-block{display:grid;gap:4px;padding:18px 12px;border-radius:20px;background:linear-gradient(180deg,#fffaf5 0%,#f7efe5 100%);border:1px solid rgba(180,140,101,.12);box-shadow:0 10px 22px rgba(24,16,10,.06);min-width:0}
+.family-block{display:grid;gap:8px;padding:18px 12px;border-radius:20px;background:linear-gradient(180deg,#fffaf5 0%,#f7efe5 100%);border:1px solid rgba(180,140,101,.12);box-shadow:0 10px 22px rgba(24,16,10,.06);min-width:0}
 .family-block h4{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--text-soft);margin-bottom:0;font-weight:600}
-.family-name{font-family:'Playfair Display',serif;font-size:clamp(0.85rem,3vw,0.95rem);color:var(--maroon);font-weight:700;line-height:1.1;margin-bottom:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.family-row{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:6px;align-items:start;min-width:0}
+.family-name{font-family:'Playfair Display',serif;font-size:clamp(0.85rem,3vw,0.95rem);color:var(--maroon);font-weight:700;line-height:1.15;margin-bottom:0;word-break:break-word}
+.family-row{display:grid;grid-template-columns:max-content minmax(0,1fr);column-gap:8px;align-items:start;min-width:0;row-gap:2px}
 .family-row .label{font-weight:700;color:var(--maroon);margin:0;font-size:0.92rem;line-height:1.2;white-space:nowrap}
-.family-row .value{color:var(--text-soft);font-size:0.9rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.family-row .value{color:var(--text-soft);font-size:0.9rem;line-height:1.4;word-break:break-word;min-width:0}
 
 @media(max-width:420px){
   .family-name{font-size:clamp(0.82rem,4.6vw,0.95rem)}
-  .family-row{grid-template-columns:max-content minmax(0,1fr)}
+  .family-row{grid-template-columns:max-content minmax(0,1fr);column-gap:6px}
 }
 .blessings-card{padding:56px 44px;}
 
